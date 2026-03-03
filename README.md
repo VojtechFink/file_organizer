@@ -1,171 +1,322 @@
-📁 File Organizer
+\# 🔍 File Organizer \& Duplicate Finder
 
 
 
-Automatic file organizer by extension - Python project for organizing files in folders.
+Advanced file organization tool with multiprocessing duplicate detection.
 
 
 
-📋 Description
+\## ✨ Features
 
 
 
-File Organizer is a Python application that automatically organizes files in a folder based on their extensions. The program creates subfolders for each file type and moves files into the corresponding folders.
+\- 📁 \*\*File Organization\*\* - Organize files by type, date, or custom rules
+
+\- 🔍 \*\*Duplicate Detection\*\* - Fast multiprocessing duplicate finder
+
+\- ⚡ \*\*Performance\*\* - Utilizes all CPU cores for maximum speed
+
+\- 📊 \*\*Statistics\*\* - Detailed reports on duplicates and wasted space
+
+\- 🛡️ \*\*Safe Operations\*\* - Dry run mode to preview changes
+
+\- 📈 \*\*Progress Tracking\*\* - Real-time progress bars
 
 
 
-✨ Features
+\## 🚀 Quick Start
 
 
 
-✅ Automatic file type detection by extension
-
-✅ Creation of subfolders based on extensions
-
-✅ Moving files to corresponding folders
-
-✅ Error handling and input validation
-
-✅ Complete test coverage (91%)
+\### Installation
 
 
 
-🚀 Installation
+```bash
 
+\# Clone repository
 
-
-Requirements
-
-
-
-Python 3.7 or newer
-
-pip (package manager)
-
-
-
-\### Installation Steps
-
-
-
-1. Clone the repository
-
-git clone https://github.com/VojtechFink/file_organizer.git
+git clone <your-repo-url>
 
 cd file\_organizer
 
-2. Install dependencies
+
+
+\# Create virtual environment
+
+python -m venv .venv
+
+
+
+\# Activate virtual environment
+
+\# Windows:
+
+.venv\\Scripts\\activate
+
+\# Linux/Mac:
+
+source .venv/bin/activate
+
+
+
+\# Install dependencies
 
 pip install -r requirements.txt
 
-Example
-====================================================
-FILE ORGANIZER - File Organization Tool
-====================================================
+ⓘ
 
-Enter the path to the folder you want to organize: C:\Users\User\Downloads
+For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
 
-Starting file organization...
-✅ Organization completed!
+Usage
 
-Usage in Code
+Find Duplicates (CLI)
 
-    
-from src.file_organizer import FileOrganizer
 
-# Create organizer instance
-organizer = FileOrganizer("/path/to/folder")
 
-# Run organization
-organizer.organize()
+&nbsp;   
+
+python duplicate\_finder\_cli.py
+
+ⓘ
+
+For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
+
+Features:
+
+
+
+⚡ Automatic multiprocessing (uses all CPU cores)
+
+📊 Progress bar during scanning
+
+🔐 Choice of MD5 or SHA256 hashing
+
+🗑️ Delete or move duplicates
+
+🔍 Dry run mode
+
+Benchmark Performance
+
+
+
+&nbsp;   
+
+python benchmark\_duplicates.py
+
+ⓘ
+
+For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
+
+Compare single-process vs multiprocessing performance.
+
+
+
+📊 Example Output
+
+🔍 DUPLICATE FILE FINDER (Multiprocessing)
+
+============================================================
+
+⚡ Using 8 CPU cores for processing
+
+
+
+📂 Enter directory path to scan: C:\\MyFiles
+
+🔄 Scan subdirectories? (y/n, default: y): y
+
+
+
+🔐 Choose hash algorithm:
+
+1\. MD5 (faster)
+
+2\. SHA256 (more secure)
+
+Your choice (1/2, default: 1): 1
+
+✅ Using MD5
+
+
+
+🔍 Scanning: C:\\MyFiles
+
+🔍 Hashing files: 100%|████████████████| 1500/1500 \[00:03<00:00, 450.23file/s]
+
+✅ Processed 1500 files
+
+
+
+============================================================
+
+📊 DUPLICATE STATISTICS
+
+============================================================
+
+Duplicate groups:      45
+
+Total duplicate files: 120
+
+Wasted space:          2,450.50 MB
+
+&nbsp;                      2.39 GB
 
 🧪 Testing
-Running Tests
 
-    
-pytest tests/ -v
+
+
+&nbsp;   
+
+\# Run all tests
+
+pytest
+
+
+
+\# Run with coverage
+
+pytest --cov=src
+
+
+
+\# Run specific test file
+
+pytest tests/test\_duplicate\_finder\_parallel.py -v
+
 ⓘ
+
 For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
-Running Tests with Coverage
 
-    
-pytest tests/ --cov=src --cov-report=term-missing
-ⓘ
-For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
-Expected Output
-collected 2 items
+📦 Project Structure
 
-tests/test_file_organizer.py::test_organize_files PASSED
-tests/test_file_organizer.py::test_nonexistent_directory PASSED
+file\_organizer/
 
-====== 2 passed in 0.XX s ======
-📁 Project Structure
-file_organizer/
 ├── src/
-│   ├── __init__.py
-│   └── file_organizer.py      # Main logic
+
+│   ├── duplicate\_finder.py          # Single-process version
+
+│   ├── duplicate\_finder\_parallel.py # Multiprocessing version
+
+│   └── file\_organizer.py            # File organization
+
 ├── tests/
-│   ├── __init__.py
-│   └── test_file_organizer.py # Tests
-├── .venv/                      # Virtual environment
-├── .gitignore                  # Git ignore file
-├── requirements.txt            # Dependencies
-├── README.md                   # Documentation
-└── main.py                     # Entry point
-🔧 Technologies
-Python 3.11 - Programming language
-pytest - Testing framework
-pytest-cov - Code coverage
-pathlib - Path operations
-shutil - File operations
-📝 Organization Example
-Before:
 
-Downloads/
-├── document.txt
-├── image.jpg
-├── video.mp4
-├── presentation.pdf
-└── another_document.txt
-After:
+│   ├── test\_duplicate\_finder.py
 
-Downloads/
-├── txt/
-│   ├── document.txt
-│   └── another_document.txt
-├── jpg/
-│   └── image.jpg
-├── mp4/
-│   └── video.mp4
-└── pdf/
-    └── presentation.pdf
-⚠️ Warnings
-The program moves files, not copies them
-Make sure you have a backup of important data
-The program ignores hidden files and folders
-Only files are organized, not folders
-🐛 Troubleshooting
-Error: "Directory does not exist"
-Check that the folder path is correct
-Make sure the folder exists
-Error: "Permission denied"
-Check that you have write permissions to the folder
-Close all files in the folder
+│   └── test\_duplicate\_finder\_parallel.py
+
+├── duplicate\_finder\_cli.py          # Main CLI
+
+├── benchmark\_duplicates.py          # Performance benchmark
+
+├── requirements.txt
+
+└── README.md
+
+⚙️ Configuration
+
+Number of CPU Cores
+
+By default, uses all available CPU cores. To customize:
+
+
+
+
+
+&nbsp;   
+
+from src.duplicate\_finder\_parallel import DuplicateFinderParallel
+
+
+
+\# Use 4 cores
+
+finder = DuplicateFinderParallel(num\_processes=4)
+
+ⓘ
+
+For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
+
+Hash Algorithm
+
+Choose between MD5 (faster) or SHA256 (more secure):
+
+
+
+
+
+&nbsp;   
+
+finder = DuplicateFinderParallel(hash\_algorithm='sha256')
+
+ⓘ
+
+For code that is intended to be used in Siemens products or services, the code generation features of our AI Services may only be used after prior approval of your responsible organizational unit.
+
+🔒 Safety Features
+
+Dry Run Mode - Preview what would be deleted
+
+Confirmation Required - Must type 'DELETE' to confirm deletion
+
+Keep Original - Always keeps one copy of each file
+
+Error Handling - Graceful handling of permission errors
+
+📈 Performance
+
+Typical speedup with multiprocessing:
+
+
+
+Small datasets (< 100 files): 1.5-2x faster
+
+Medium datasets (100-1000 files): 3-4x faster
+
+Large datasets (> 1000 files): 5-8x faster
+
+Results vary based on CPU cores, disk speed, and file sizes.
+
+
+
 🤝 Contributing
-Contributions are welcome! If you want to contribute:
 
-Fork the repository
-Create a new branch (git checkout -b feature/new-feature)
-Commit your changes (git commit -m 'Add new feature')
-Push to the branch (git push origin feature/new-feature)
-Create a Pull Request
+Contributions welcome! Please feel free to submit a Pull Request.
+
+
+
 📄 License
-This project is open-source and available under the MIT License.
 
-👤 Author
-Created as an educational project for learning Python.
-Vojtěch Fink
+MIT License - feel free to use in your projects!
 
-📧 Contact
-Have questions or suggestions? Feel free to reach out!
-vojtechfink11@gmail.com
+
+
+🐛 Known Issues
+
+Very large files (> 1GB) may slow down processing
+
+Network drives may have slower performance
+
+Windows: Some system files may be inaccessible
+
+🔮 Future Features
+
+GUI interface
+
+Cloud storage support
+
+Image similarity detection
+
+Scheduled automatic scans
+
+Email reports
+
+📞 Support
+
+For issues or questions, please open an issue on GitHub.
+
+
+
+---
+
