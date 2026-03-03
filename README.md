@@ -52,7 +52,7 @@ File Organizer is a Python application that automatically organizes files in a f
 
 ```bash
 
-git clone <repository-url>
+git clone https://github.com/VojtechFink/file_organizer.git
 
 cd file\_organizer
 
